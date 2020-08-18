@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 解决全站乱码问题，处理所有的请求
+ *   handling Garbled code， process all the requests
  */
 @WebFilter("/*")
 public class CharacterFilter implements Filter {
@@ -18,16 +18,17 @@ public class CharacterFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse rep, FilterChain filterChain) throws IOException, ServletException {
-        //将父接口转为子接口
+
+
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) rep;
-        //获取请求方法
+        // get request
         String method = request.getMethod();
-        //解决post请求中文数据乱码问题
+        // for solving chinese characters in post
         if(method.equalsIgnoreCase("post")){
             request.setCharacterEncoding("utf-8");
         }
-        //处理响应乱码
+        //  handling Garbled code
         response.setContentType("text/html;charset=utf-8");
         filterChain.doFilter(request,response);
     }
