@@ -5,9 +5,10 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 /**
- *   handling Garbled code， process all the requests
+ *   handling Garbled code， process all the requests 解决乱码问题
  */
 @WebFilter("/*")
 public class CharacterFilter implements Filter {
@@ -17,7 +18,7 @@ public class CharacterFilter implements Filter {
     }
 
     @Override
-    public void doFilter(ServletRequest req, ServletResponse rep, FilterChain filterChain) throws IOException, ServletException {
+    public void doFilter(ServletRequest req, ServletResponse rep, FilterChain filterChain) throws ServletException, IOException {
 
 
         HttpServletRequest request = (HttpServletRequest) req;
