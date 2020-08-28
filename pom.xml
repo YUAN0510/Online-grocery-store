@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.elliott</groupId>
-  <artifactId>springMVC01</artifactId>
+  <artifactId>Pika</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
